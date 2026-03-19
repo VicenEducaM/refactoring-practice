@@ -5,7 +5,7 @@ package refactor;
             double precio = 12.5;
             double iva = 0.21;
 
-            double precioConIva = precio * (1 + iva); // variable a inlinar
+            double precioConIva = precio * (1 + iva); // variable a probar con inline variable
             System.out.println("Precio final: " + precioConIva);
         }
     }
