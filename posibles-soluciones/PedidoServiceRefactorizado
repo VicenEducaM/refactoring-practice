@@ -1,0 +1,21 @@
+package refactor;
+public class PedidoServiceRefactorizado {
+
+    private final CalculadorPrecios precioCalculadora = new CalculadorPrecios();
+
+    public void procesarPedido(String idPedido) {
+        System.out.println("Cargando pedido " + idPedido + " de la BD...");
+
+        double precioBase = 100.0;
+        double impuestos = precioCalculadora.calcularImpuestos(precioBase);
+        double descuentos = precioCalculadora.calcularDescuentos(precioBase);
+        double total = precioBase + impuestos - descuentos;
+
+        System.out.println("Pedido " + idPedido + " procesado. Total = " + total);
+        enviarEmailConfirmacion(idPedido, total);
+    }
+
+    private void enviarEmailConfirmacion(String id, double total) {
+        System.out.println("Enviando email de confirmación del pedido " + id + " (total " + total + ")");
+    }
+}
